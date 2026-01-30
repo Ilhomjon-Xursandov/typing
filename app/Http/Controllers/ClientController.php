@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreClientRequest;
+use App\Http\Requests\UpdateClientRequest;
 use App\Models\Client;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::latest()->pagine(10);
+        $clients = Client::latest()->paginate(10);
         return view('clients.index', compact('clients'));
     }
 
@@ -58,7 +59,7 @@ class ClientController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreClientRequest $request, Client $client)
+    public function update(UpdateClientRequest $request, Client $client)
     {
         $validated = $request->validated();
 
