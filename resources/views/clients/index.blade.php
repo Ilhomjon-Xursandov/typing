@@ -33,7 +33,7 @@
                         <td>{{ $client->phone }}</td>
                         <td>{{ $client->email }}</td>
                         <td><a class="btn btn-outline-success m-2" href="{{ route('client.show', $client) }}">Ko'rish</a></td>
-                        <td><a class="btn btn-outline-warning m-2" href="{{ route('client.edit') }}">Taxrirlash</a></td>
+                        <td><a class="btn btn-outline-warning m-2" href="{{ route('client.edit', $client) }}">Taxrirlash</a></td>
                         <td>
                             <form>
                                 <button type="submit" class="btn btn-online-danger m-2">O'chirish</button>
