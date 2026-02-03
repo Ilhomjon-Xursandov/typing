@@ -13,4 +13,6 @@ Route::resource('/client', ClientController::class);
 Route::resource('/service', ServiceController::class);
 Route::resource('/order', OrderController::class);
 
-
+Route::get('/d', function () {
+    return view('layouts.app');
+});
