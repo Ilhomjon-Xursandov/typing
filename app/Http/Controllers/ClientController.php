@@ -31,7 +31,9 @@ class ClientController extends Controller
      */
     public function store(StoreClientRequest $request)
     {
+        dd($request);
         $validated = $request->validated();
+        $validated['phone'] = '+998' . $validated['phone'];
 
         Client::create($validated);
 
