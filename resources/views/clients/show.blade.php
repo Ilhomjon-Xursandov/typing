@@ -17,5 +17,4 @@
             Yaratilgan vaqti: {{ $client->created_at }}<br>
         </div>
     </div>
-
 @endsection

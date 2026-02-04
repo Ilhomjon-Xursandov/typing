@@ -63,6 +63,7 @@ class ClientController extends Controller
     public function update(UpdateClientRequest $request, Client $client)
     {
         $validated = $request->validated();
+        $validated['phone'] = '+998' . $validated['phone'];
 
         Client::updated($validated);
 

@@ -8,7 +8,7 @@
     <div class="bg-secondary text-center rounded p-4">
         <div class="d-flex align-items-center justify-content-between mb-4">
             <h6 class="mb-0">Mijozlar ro'yxati</h6>
-            <a href="">Barchasini ko'rish</a>
+            <a href="{{route('client.create')}}" class="btn btn-success"><i class="bi bi-plus-lg"></i> Qo'shish</a>
         </div>
         <div class="table-responsive">
             @if($clients->count() > 0)
@@ -19,9 +19,7 @@
                     <th scope="col">Ismi</th>
                     <th scope="col">Mobil</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Ko'rish</th>
-                    <th scope="col">Taxrirlash</th>
-                    <th scope="col">O'shirish</th>
+                    <th scope="col">O'chirish</th>
 
                 </tr>
                 </thead>
@@ -29,14 +27,22 @@
                 @foreach($clients as $client)
                     <tr>
                         <td>{{ $client->created_at }}</td>
-                        <td>{{ $client->name }}</td>
+                        <td>{{ $client->name }}
+                            <sup>
+                                <a href="{{ route('client.show', $client) }}"> <i class="bi bi-eye" style="color: green"></i></a>
+                                <a href="{{route('client.edit', $client)}}"><i class="bi bi-pencil-square" style="color: yellow"></i></a>
+                            </sup>
+                        </td>
                         <td>{{ $client->phone }}</td>
                         <td>{{ $client->email }}</td>
-                        <td><a class="btn btn-outline-success m-2" href="{{ route('client.show', $client) }}">Ko'rish</a></td>
-                        <td><a class="btn btn-outline-warning m-2" href="{{ route('client.edit', $client) }}">Taxrirlash</a></td>
                         <td>
-                            <form>
-                                <button type="submit" class="btn btn-online-danger m-2">O'chirish</button>
+                            <form action="{{ route('client.destroy', $client) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm m-2">
+                                    <i class="bi bi-trash-fill"></i>
+                                </button>
+
                             </form>
                         </td>
                     </tr>
