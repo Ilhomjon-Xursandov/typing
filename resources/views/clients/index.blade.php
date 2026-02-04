@@ -36,13 +36,13 @@
                         <td>{{ $client->phone }}</td>
                         <td>{{ $client->email }}</td>
                         <td>
-                            <form action="{{ route('client.destroy', $client) }}" method="POST">
+                            <form action="{{ route('client.destroy', $client) }}" method="POST"
+                                  onsubmit="return confirm('Rostdan ham {{ $client->name }} mijozini o‘chirmoqchimisiz?')">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm m-2">
                                     <i class="bi bi-trash-fill"></i>
                                 </button>
-
                             </form>
                         </td>
                     </tr>
@@ -63,7 +63,6 @@
                                 <i class="bi bi-plus-circle me-2"></i>
                                 Yangi mijoz qo‘shish
                             </a>
-
                         </div>
                     </td>
                 </tr>

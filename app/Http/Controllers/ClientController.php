@@ -65,7 +65,7 @@ class ClientController extends Controller
         $validated = $request->validated();
         $validated['phone'] = '+998' . $validated['phone'];
 
-        Client::updated($validated);
+        $client->update($validated);
 
         return redirect()->route('client.index')->with(
             'success', 'Mijoz muvofoqyatli yangilandi'
