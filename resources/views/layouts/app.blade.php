@@ -83,7 +83,8 @@
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="{{ route('client.index') }}" class="nav-item nav-link {{ request()->routeIs('client') ? 'active' : '' }}"><i class="bi bi-people"></i>Clients</a>
+                    <a href="{{ route('client.index') }}" class="nav-item nav-link {{ request()->routeIs('client.*') ? 'active' : '' }}"><i class="bi bi-people me-2"></i>Mijozlar</a>
+                    <a href="{{ route('service.index') }}" class="nav-item nav-link {{ request()->routeIs('service.*') ? 'active' : '' }}"><i class="bi bi-gear me-2"></i>Servislar</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
                         <div class="dropdown-menu bg-transparent border-0">
