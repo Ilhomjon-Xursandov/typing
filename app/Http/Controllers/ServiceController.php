@@ -33,7 +33,6 @@ class ServiceController extends Controller
      */
     public function store(StoreServiceRequest $request)
     {
-//        dd($request->request->all());
         $validated = $request->validated();
         Service::create($validated);
 
@@ -64,6 +63,7 @@ class ServiceController extends Controller
     public function update(UpdateServiceRequest $request, Service $service)
     {
         $validated = $request->validated();
+        $validated['is_active'] = $request->boolean('is_active');
         $service->update($validated);
 
         return redirect()->route('service.index')->with(
