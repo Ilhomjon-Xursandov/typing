@@ -29,4 +29,11 @@ class UpdateServiceRequest extends FormRequest
             'is_active' => 'required|boolean',
         ];
     }
+
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+           'is_active' => $this->has('is_active')
+        ]);
+    }
 }
