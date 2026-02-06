@@ -26,42 +26,42 @@
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">First Name</th>
-                                <th scope="col">Last Name</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Country</th>
-                                <th scope="col">ZIP</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Sarlavha</th>
+                                <th scope="col">Narxi</th>
+                                <th scope="col">Holati</th>
+                                <th scope="col">Qachondan boshlandi?</th>
+                                <th scope="col">O'chirish</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>John</td>
-                                <td>Doe</td>
-                                <td>jhon@email.com</td>
-                                <td>USA</td>
-                                <td>123</td>
-                                <td>Member</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>mark@email.com</td>
-                                <td>UK</td>
-                                <td>456</td>
-                                <td>Member</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>jacob@email.com</td>
-                                <td>AU</td>
-                                <td>789</td>
-                                <td>Member</td>
-                            </tr>
+                            @foreach($services as $service)
+                                <tr>
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td>
+                                        {{ $service->title }}
+                                        <sup>
+                                            <a href="{{ route('service.show', $service) }}"> <i class="bi bi-eye" style="color: green"></i></a>
+                                            <a href="{{route('service.edit', $service)}}"><i class="bi bi-pencil-square" style="color: yellow"></i></a>
+                                        </sup>
+                                    </td>
+                                    <td>{{ $service->price }}</td>
+                                    <td>
+                                        @if($service->is_active)
+                                            <p class="text-success">Faol</p>
+                                        @else
+                                            <p class="text-danger">Faol emas</p>
+                                        @endif
+                                    </td>
+                                    <td>{{ $service->created_at }}</td>
+                                    <td>
+                                        <form action="{{ route('service.destroy', $service)}}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn-danger btn-sm m-2"><i class="bi bi-trash"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

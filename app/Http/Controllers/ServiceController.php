@@ -33,6 +33,7 @@ class ServiceController extends Controller
      */
     public function store(StoreServiceRequest $request)
     {
+//        dd($request->request->all());
         $validated = $request->validated();
         Service::create($validated);
 
