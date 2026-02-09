@@ -20,7 +20,7 @@
                         </a>
                     </div>
                 @else
-                    <h6 class="mb-4">Buyurtmalar yo'yxati</h6>
+                    <h6 class="mb-4">Buyurtmalar yo'yxati <a href="{{ route('order.create') }}" class=""><i class="bi bi-bag-plus text-success"></i></a></h6>
                     <div class="row g-3">
                         @foreach($orders as $order)
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -30,12 +30,18 @@
                                         <h5 class="card-title text-black-50"><a href="{{ route('service.show', $order->service) }}">{{ $order->service->title }}</a></h5>
                                         <p class="card-text">{{ $order->service->description }}. Kurs narxi: {{ $order->service->price }}</p>
                                         <p>Buyurtmachi: <a href="{{ route('client.show', $order->client) }}">{{ $order->client->name }}</a></p>
-                                        <a href="#" class="btn btn-primary">Go</a>
+                                        <div class="d-flex gap-2">
+                                            <a href="#" class="btn btn-info"><i class="bi bi-pencil-square"></i></a>
+                                            <form action="{{ route('order.destroy', $order) }}" method="post" class="m-0">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
-
                         <!-- shu col ni ko‘paytirasan -->
                     </div>
                 @endif
