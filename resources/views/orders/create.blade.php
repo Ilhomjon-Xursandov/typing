@@ -10,9 +10,9 @@
                     @csrf
                     <div class="form-floating mb-3">
                         <select name="client_id" class="form-control">
-                            @foreach($clients as $client)
-                                <option value="{{ $client->id }}">
-                                    {{ $client->name }}
+                            @foreach($users as $user)
+                                <option value="{{ $user->id }}">
+                                    {{ $user->name }}
                                 </option>
                             @endforeach
                         </select>

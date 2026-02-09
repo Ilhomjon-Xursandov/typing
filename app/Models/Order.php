@@ -11,7 +11,8 @@ class Order extends Model
         'client_id',
         'service_id',
         'status',
-        'comment'
+        'comment',
+        'user_id'
     ];
 
     public function client()

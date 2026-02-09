@@ -41,8 +41,8 @@ class AuthController extends Controller
 
         if (!Auth::attempt($credentials, $remember)){
             return back()->withErrors([
-                'email'=>'Email yoki parol noto\'g\'iri',
-            ])->onlyInput('email');
+                'login'=>'Email yoki parol noto\'g\'iri',
+            ])->onlyInput('name');
         }
         $reqest->session()->regenerate();
 

@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Client;
 use App\Models\Order;
 use App\Models\Service;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -16,7 +17,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::with(['client', 'service'])
+        $orders = Order::with(['users', 'service'])
             ->latest()
             ->paginate(10);
         return view('orders.index', compact('orders'));
@@ -28,9 +29,9 @@ class OrderController extends Controller
      */
     public function create()
     {
-        $clients = Client::all();
+        $users = User::all();
         $services = Service::where('is_active', true)->get();
-        return view('orders.create', compact('clients', 'services'));
+        return view('orders.create', compact('users', 'services'));
     }
 
     /**
@@ -40,7 +41,11 @@ class OrderController extends Controller
     {
         $validated = $request->validated();
 
-        Order::create($validated);
+        Order::create([
+            'user_id' => auth()->id(),
+            'service_id' => $validated->service_id,
+            'comment' => $validated->comment,
+        ]);
         return redirect()->route('order.index')->with('success', 'Order created successfully.');
     }
 
@@ -49,7 +54,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        $order->load(['client', 'service']);
+        $order->load(['user', 'service']);
         return view('orders.show', compact('order'));
     }
 
@@ -58,10 +63,10 @@ class OrderController extends Controller
      */
     public function edit(Order $order)
     {
-        $clients = Client::all();
+        $users = User::all();
         $services = Service::where('is_active', true)->get();
         $statuses = Order::STATUSES;
-        return view('orders.edit', compact('order', 'clients', 'services', 'statuses'));
+        return view('orders.edit', compact('order', 'users', 'services', 'statuses'));
     }
 
     /**

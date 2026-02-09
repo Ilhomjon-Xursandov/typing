@@ -22,7 +22,7 @@ class StoreOrderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'client_id' => 'required:exists:clients,id',
+            'user_id' => 'required:exists:clients,id',
             'service_id' => 'required:exists:services,id',
             'comment' => 'nullable|string|max:1000',
         ];

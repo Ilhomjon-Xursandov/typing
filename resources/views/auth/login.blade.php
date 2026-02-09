@@ -14,23 +14,26 @@
                         </a>
                         <h3>Kirish</h3>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Elektron pochta</label>
-                    </div>
-                    <div class="form-floating mb-4">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                        <label for="floatingPassword">Parol</label>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    <form action="{{ route('login.store') }}" method="post">
+                        @csrf
+                        <div class="form-floating mb-3">
+                            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Elektron pochta</label>
                         </div>
-                        <a href="">Forgot Password</a>
-                    </div>
-                    <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
-                    <p class="text-center mb-0">Menda akunt yo'q? <a href="{{ route('register') }}">Ro'yxatdan o'tish</a></p>
+                        <div class="form-floating mb-4">
+                            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Parol</label>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <div class="form-check">
+                                <input type="checkbox" name="remember" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            </div>
+                            <a href="">Forgot Password</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Kirish</button>
+                        <p class="text-center mb-0">Menda akunt yo'q? <a href="{{ route('register') }}">Ro'yxatdan o'tish</a></p>
+                    </form>
                 </div>
             </div>
         </div>
