@@ -31,7 +31,7 @@
                                         <p class="card-text">{{ $order->service->description }}. Kurs narxi: {{ $order->service->price }}</p>
                                         <p>Buyurtmachi: <a href="{{ route('client.show', $order->client) }}">{{ $order->client->name }}</a></p>
                                         <div class="d-flex gap-2">
-                                            <a href="#" class="btn btn-info"><i class="bi bi-pencil-square"></i></a>
+                                            <a href="{{ route('order.edit', $order) }}" class="btn btn-info"><i class="bi bi-pencil-square"></i></a>
                                             <form action="{{ route('order.destroy', $order) }}" method="post" class="m-0">
                                                 @csrf
                                                 @method('DELETE')

@@ -8,7 +8,7 @@
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h6 class="mb-0">Mijozlar ro'yxati</h6>
             </div>
-            <ul>
+            <ul class="list-unstyled">
                 <li>Title: {{ $service->title }}</li>
                 <li>Description: {{ $service->description }}</li>
                 <li>Price: {{ $service->price }} so'm</li>

@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Order;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateOrderRequest extends FormRequest
+class LoginReqest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,10 +22,8 @@ class UpdateOrderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'client_id'  => ['required', 'exists:clients,id'],
-            'service_id' => ['required', 'exists:services,id'],
-            'status'     => ['required', 'in:' . implode(',', Order::STATUSES)],
-            'comment'    => ['nullable', 'string', 'max:1000'],
+            'email' => 'required|email',
+            'password' => 'required|string',
         ];
     }
 }

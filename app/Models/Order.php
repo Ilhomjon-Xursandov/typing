@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    public const STATUSES = ['new', 'in_progress', 'done', 'canceled'];
     protected $fillable = [
         'client_id',
         'service_id',

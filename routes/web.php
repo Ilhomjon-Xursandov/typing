@@ -4,12 +4,24 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/client', ClientController::class);
-Route::resource('/service', ServiceController::class);
-Route::resource('/order', OrderController::class);
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
+Route::post('/register', [AuthController::class, 'register'])->name('register.store');
+
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.store');
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::middleware('auth')->group(function(){
+    Route::resource('/client', ClientController::class);
+    Route::resource('/service', ServiceController::class);
+    Route::resource('/order', OrderController::class);
+});
+
 

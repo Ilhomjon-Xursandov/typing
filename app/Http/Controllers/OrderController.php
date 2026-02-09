@@ -60,7 +60,7 @@ class OrderController extends Controller
     {
         $clients = Client::all();
         $services = Service::where('is_active', true)->get();
-        $statuses = ['new', 'in_progress', 'done', 'cancelled'];
+        $statuses = Order::STATUSES;
         return view('orders.edit', compact('order', 'clients', 'services', 'statuses'));
     }
 
@@ -73,7 +73,7 @@ class OrderController extends Controller
 
         $order->update($validated);
 
-        return redirect()->route('orders.index')
+        return redirect()->route('order.index')
             ->with('success', 'Buyurtma ma\'lumotlari muvaffaqiyatli yangilandi.');
     }
 
@@ -84,7 +84,7 @@ class OrderController extends Controller
     {
         $order->delete();
 
-        return redirect()->route('orders.index')->with('success', 'order o\'chirildi!');
+        return redirect()->route('order.index')->with('success', 'order o\'chirildi!');
     }
 
     public function updateStatus(UpdateOrderStatusRequest $request, Order $order)
@@ -93,7 +93,7 @@ class OrderController extends Controller
 
         $order->update(['status' => $validated['status']]);
 
-        return redirect()->route('orders.index')
+        return redirect()->route('order.index')
             ->with('success', 'Buyurtma holati yangilandi.');
     }
 }
