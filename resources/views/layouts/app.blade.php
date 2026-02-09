@@ -85,7 +85,7 @@
                     <a href="#" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="{{ route('client.index') }}" class="nav-item nav-link {{ request()->routeIs('client.*') ? 'active' : '' }}"><i class="bi bi-people me-2"></i>Mijozlar</a>
                     <a href="{{ route('service.index') }}" class="nav-item nav-link {{ request()->routeIs('service.*') ? 'active' : '' }}"><i class="bi bi-gear me-2"></i>Servislar</a>
-                    <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Buyurtmalar</a>
+                    <a href="{{ route('order.index') }}" class="nav-item nav-link {{ request()->routeIs('order.*') ? 'active' : '' }}"><i class="fa fa-th me-2"></i>Buyurtmalar</a>
                     <a href="chart.html" class="nav-item nav-link"><i class="bi bi-box-arrow-left me-2"></i>Chirish</a>
 
                 </div>

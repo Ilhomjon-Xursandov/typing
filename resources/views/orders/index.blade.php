@@ -20,50 +20,23 @@
                         </a>
                     </div>
                 @else
-                    <h6 class="mb-4">Responsive Table</h6>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Sarlavha</th>
-                                <th scope="col">Narxi</th>
-                                <th scope="col">Holati</th>
-                                <th scope="col">Qachondan boshlandi?</th>
-                                <th scope="col">O'chirish</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($orders as $order)
-                                <tr>
-                                    <th scope="row">{{ $loop->iteration }}</th>
-{{--                                    <td>--}}
-{{--                                        {{ $service->title }}--}}
-{{--                                        <sup>--}}
-{{--                                            <a href="{{ route('service.show', $service) }}"> <i class="bi bi-eye" style="color: green"></i></a>--}}
-{{--                                            <a href="{{route('service.edit', $service)}}"><i class="bi bi-pencil-square" style="color: yellow"></i></a>--}}
-{{--                                        </sup>--}}
-{{--                                    </td>--}}
-{{--                                    <td>{{ $service->price }}</td>--}}
-{{--                                    <td>--}}
-{{--                                        @if($service->is_active)--}}
-{{--                                            <p class="text-success">Faol</p>--}}
-{{--                                        @else--}}
-{{--                                            <p class="text-danger">Faol emas</p>--}}
-{{--                                        @endif--}}
-{{--                                    </td>--}}
-{{--                                    <td>{{ $service->created_at }}</td>--}}
-{{--                                    <td>--}}
-{{--                                        <form action="{{ route('service.destroy', $service)}}" method="post">--}}
-{{--                                            @csrf--}}
-{{--                                            @method('DELETE')--}}
-{{--                                            <button type="submit" class="btn-danger btn-sm m-2"><i class="bi bi-trash"></i></button>--}}
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                    <h6 class="mb-4">Buyurtmalar yo'yxati</h6>
+                    <div class="row g-3">
+                        @foreach($orders as $order)
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="card h-100">
+                                    <img src="{{ asset('img/service.png') }}" class="card-img-top" alt="service">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-black-50"><a href="{{ route('service.show', $order->service) }}">{{ $order->service->title }}</a></h5>
+                                        <p class="card-text">{{ $order->service->description }}. Kurs narxi: {{ $order->service->price }}</p>
+                                        <p>Buyurtmachi: <a href="{{ route('client.show', $order->client) }}">{{ $order->client->name }}</a></p>
+                                        <a href="#" class="btn btn-primary">Go</a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+
+                        <!-- shu col ni ko‘paytirasan -->
                     </div>
                 @endif
             </div>

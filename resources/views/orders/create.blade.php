@@ -22,19 +22,17 @@
                         <select name="service_id" class="form-control">
                             @foreach($services as $service)
                                 <option value="{{ $service->id }}">
-                                    {{ $service->name }}
+                                    {{ $service->title }}
                                 </option>
                             @endforeach
                         </select>
                         <label for="floatingInput">Servis</label>
                     </div>
                     <div class="form-floating mt-3">
-                        <input type="number" name="price" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <textarea id="floatingInput" class="form-control">{{ $ }}</textarea>
-                        <label for="floatingInput">Price</label>
+                        <textarea id="floatingInput" name="" class="form-control"></textarea>
+                        <label for="floatingInput">Comment</label>
                     </div>
                     <button type="submit" class="btn btn-outline-success mt-3">Saqlash</button>
-
                 </form>
             </div>
         </div>

@@ -24,7 +24,6 @@ class StoreOrderRequest extends FormRequest
         return [
             'client_id' => 'required:exists:clients,id',
             'service_id' => 'required:exists:services,id',
-            'status' => 'required|in:new,in_progress,delivered,cancelled',
             'comment' => 'nullable|string|max:1000',
         ];
     }
