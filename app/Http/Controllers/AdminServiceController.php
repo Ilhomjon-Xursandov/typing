@@ -35,7 +35,7 @@ class AdminServiceController extends Controller
         $validated = $request->validated();
         Service::create($validated);
 
-        return redirect()->route('admin.services.index')->with(
+        return redirect()->route('admin.service.index')->with(
             'success', 'Servis yaratildi'
         );
     }

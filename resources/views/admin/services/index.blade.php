@@ -20,7 +20,7 @@
                         </a>
                     </div>
                 @else
-                    <h6 class="mb-4">Responsive Table</h6>
+                    <h6 class="mb-4">Responsive Table <a href="{{ route('admin.service.create') }}"><i class="bi bi-node-plus"></i></a></h6>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>

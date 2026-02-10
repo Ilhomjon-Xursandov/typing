@@ -9,7 +9,7 @@
                 <form action="{{ route('order.store') }}" method="post">
                     @csrf
                     <div class="form-floating mb-3">
-                        <select name="client_id" class="form-control">
+                        <select name="client_id" class="form-select">
                             @foreach($users as $user)
                                 <option value="{{ $user->id }}">
                                     {{ $user->name }}
@@ -19,7 +19,7 @@
                         <label for="floatingInput">Mijoz</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <select name="service_id" class="form-control">
+                        <select name="service_id" class="form-select">
                             @foreach($services as $service)
                                 <option value="{{ $service->id }}">
                                     {{ $service->title }}

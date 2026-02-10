@@ -6,7 +6,7 @@
     <div class="col-sm-12 col-xl-12 pt-4 px-4">
         <div class="bg-secondary rounded h-100 p-4">
             <h6 class="mb-4">Floating Label</h6>
-            <form action="{{ route('service.store') }}" method="post">
+            <form action="{{ route('admin.service.store') }}" method="post">
                 @csrf
                 <div class="form-floating mb-3">
                     <input type="text" name="title" class="form-control" id="floatingInput" placeholder="name@example.com">
