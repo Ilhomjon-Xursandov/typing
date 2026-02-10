@@ -85,8 +85,8 @@
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">Jhon Doe</h6>
-                        <span>Admin</span>
+                        <h6 class="mb-0">{{ auth()->user()->name }}</h6>
+                        <span>{{ auth()->user()->role}}</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
@@ -99,8 +99,10 @@
                         <i class="bi bi-gear me-2"></i>Servislar
                     </a>
                     <a href="{{ route('order.index') }}" class="nav-item nav-link {{ request()->routeIs('order.*') ? 'active' : '' }}"><i class="fa fa-th me-2"></i>Buyurtmalar</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="bi bi-box-arrow-left me-2"></i>Chirish</a>
-
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="nav-item nav-link"><i class="bi bi-box-arrow-left me-2"></i>Chirish</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="post" style="display: none;">
+                        @csrf
+                    </form>
                 </div>
             </nav>
         </div>
@@ -187,17 +189,13 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="{{asset('img/user.jpg')}}" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                            <span class="d-none d-lg-inline-flex">{{ auth()->user()->name}}</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item" style="color: green !important; text-decoration:none;">My Profile</a>
-                            <a href="#" class="dropdown-item" style="color: green !important; text-decoration:none;">Settings</a>
-                            <form action="{{ route('logout') }}" method="POST" class="d-inline">
-                                @csrf
-                                <button type="submit" class="btn btn-link p-0 m-0" style="color: green !important; text-decoration:none;">
-                                    Chiqish
-                                </button>
-                            </form>
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();" class="dropdown-item">Chiqish</a>
 
                         </div>
                     </div>
