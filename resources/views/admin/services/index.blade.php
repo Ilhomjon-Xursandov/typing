@@ -13,7 +13,7 @@
                             Hozircha hech qanday servis yo‘q
                         </h5>
 
-                        <a href="{{ route('service.create') }}"
+                        <a href="{{ route('admin.service.create') }}"
                            class="btn btn-primary btn-lg px-4">
                             <i class="bi bi-plus-circle me-2"></i>
                             Yangi servis qo'shish
@@ -30,6 +30,7 @@
                                 <th scope="col">Narxi</th>
                                 <th scope="col">Holati</th>
                                 <th scope="col">Qachondan boshlandi?</th>
+                                <th scope="col">O'chirish</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -39,7 +40,8 @@
                                     <td>
                                         {{ $service->title }}
                                         <sup>
-                                            <a href="{{ route('service.show', $service) }}"> <i class="bi bi-eye" style="color: green"></i></a>
+                                            <a href="{{ route('admin.service.show', $service) }}"> <i class="bi bi-eye" style="color: green"></i></a>
+                                            <a href="{{route('admin.service.edit', $service)}}"><i class="bi bi-pencil-square" style="color: yellow"></i></a>
                                         </sup>
                                     </td>
                                     <td>{{ $service->price }}</td>
@@ -51,6 +53,13 @@
                                         @endif
                                     </td>
                                     <td>{{ $service->created_at }}</td>
+                                    <td>
+                                        <form action="{{ route('admin.service.destroy', $service)}}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn-danger btn-sm m-2"><i class="bi bi-trash"></i></button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>

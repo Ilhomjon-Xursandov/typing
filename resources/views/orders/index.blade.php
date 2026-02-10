@@ -29,7 +29,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title text-black-50"><a href="{{ route('service.show', $order->service) }}">{{ $order->service->title }}</a></h5>
                                         <p class="card-text">{{ $order->service->description }}. Kurs narxi: {{ $order->service->price }}</p>
-                                        <p>Buyurtmachi: <a href="{{ route('client.show', $order->client) }}">{{ $order->client->name }}</a></p>
+                                        <p>Buyurtmachi: <a href="{{ route('admin.users.show', $order->client) }}">{{ $order->client->name }}</a></p>
                                         <div class="d-flex gap-2">
                                             <a href="{{ route('order.edit', $order) }}" class="btn btn-info"><i class="bi bi-pencil-square"></i></a>
                                             <form action="{{ route('order.destroy', $order) }}" method="post" class="m-0">

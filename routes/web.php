@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminServiceController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,9 +20,14 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.store');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('users', UserController::class)->only(['index', 'show']);
+    Route::resource('service', AdminServiceController::class);
+});
+
+
 Route::middleware('auth')->group(function(){
-    Route::resource('/client', ClientController::class);
-    Route::resource('/service', ServiceController::class);
+    Route::resource('/service', ServiceController::class)->only(['index', 'show']);
     Route::resource('/order', OrderController::class);
 });
 

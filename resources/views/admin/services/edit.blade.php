@@ -6,7 +6,7 @@
     <div class="col-sm-12 col-xl-12 pt-4 px-4">
         <div class="bg-secondary rounded h-100 p-4">
             <h6 class="mb-4">Floating Label</h6>
-            <form action="{{ route('service.update', $service) }}" method="post">
+            <form action="{{ route('admin.service.update', $service) }}" method="post">
                 @csrf
                 @method('PUT')
                 <div class="form-floating mb-3">

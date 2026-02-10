@@ -30,30 +30,38 @@
 </head>
 
 <body>
+@if (session('success') || session('error'))
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 1100;">
+        @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show shadow" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
 
-    @if(session('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <i class="fa fa-exclamation-circle me-2"></i> {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
+        @if(session('error'))
+            <div class="alert alert-danger alert-dismissible fade show shadow" role="alert">
+                {{ session('error') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
 
-    @if(session('error'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <i class="fa fa-exclamation-circle me-2"></i> {{ session('error') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
+        @if($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show shadow" role="alert">
+                    <ul class="mb-0">--}}
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        @endforeach
+                    </ul>
+                </div>
+        @endif
+    </div>
+@endif
 
-    @if($errors->any())
-        <div class="alert alert-danger">
-            <ul class="mb-0">
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    @php
+        $isAdmin = auth()->check() && auth()->user()->role === 'admin';
+    @endphp
 
     <div class="container-fluid position-relative d-flex p-0">
         <!-- Spinner Start -->
@@ -83,8 +91,13 @@
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="#" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="{{ route('client.index') }}" class="nav-item nav-link {{ request()->routeIs('client.*') ? 'active' : '' }}"><i class="bi bi-people me-2"></i>Mijozlar</a>
-                    <a href="{{ route('service.index') }}" class="nav-item nav-link {{ request()->routeIs('service.*') ? 'active' : '' }}"><i class="bi bi-gear me-2"></i>Servislar</a>
+                    @if($isAdmin)
+                        <a href="#" class="nav-item nav-link {{ request()->routeIs('client.*') ? 'active' : '' }}"><i class="bi bi-people me-2"></i>Mijozlar</a>
+                    @endif
+                    <a href="{{ $isAdmin ? route('admin.service.index') : route('admin.service.index') }}"
+                       class="nav-item nav-link {{ request()->routeIs('admin.service.*','service.*') ? 'active' : '' }}">
+                        <i class="bi bi-gear me-2"></i>Servislar
+                    </a>
                     <a href="{{ route('order.index') }}" class="nav-item nav-link {{ request()->routeIs('order.*') ? 'active' : '' }}"><i class="fa fa-th me-2"></i>Buyurtmalar</a>
                     <a href="chart.html" class="nav-item nav-link"><i class="bi bi-box-arrow-left me-2"></i>Chirish</a>
 
@@ -217,6 +230,14 @@
     </div>
 
     <!-- JavaScript Libraries -->
+    <script>
+        setTimeout(() => {
+            document.querySelectorAll('.alert').forEach(a => {
+                const alert = bootstrap.Alert.getOrCreateInstance(a);
+                alert.close();
+            });
+        }, 3000);
+    </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('lib/chart/chart.min.js') }}"></script>
