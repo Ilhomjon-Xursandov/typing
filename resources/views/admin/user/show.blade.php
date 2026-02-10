@@ -11,11 +11,10 @@
             </div>
             <h2>Foydalanuvchi haqida ma'lumot</h2>
             <ul class="list-unstyled">
-                <li>Ismi: {{ $client->name }}</li>
-                <li>Telefon raqami: {{ $client->phone }}</li>
-                <li>Email: {{ $client->email }}</li>
-                <li>Ma'lumot: {{ $client->notes }}</li>
-                <li>Yaratilgan vaqti: {{ $client->created_at }}</li>
+                <li>Name: {{ $user->name }}</li>
+                <li>Email: {{ $user->email }}</li>
+                <li>Role: {{ $user->role }}</li>
+                <li>Yaratilgan vaqti: {{ $user->created_at }}</li>
             </ul>
 
         </div>

@@ -92,7 +92,7 @@
                 <div class="navbar-nav w-100">
                     <a href="#" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     @if($isAdmin)
-                        <a href="#" class="nav-item nav-link {{ request()->routeIs('client.*') ? 'active' : '' }}"><i class="bi bi-people me-2"></i>Mijozlar</a>
+                        <a href="{{ route('admin.users.index') }}" class="nav-item nav-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}"><i class="bi bi-people me-2"></i>Mijozlar</a>
                     @endif
                     <a href="{{ $isAdmin ? route('admin.service.index') : route('admin.service.index') }}"
                        class="nav-item nav-link {{ request()->routeIs('admin.service.*','service.*') ? 'active' : '' }}">
@@ -190,11 +190,13 @@
                             <span class="d-none d-lg-inline-flex">John Doe</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="#" class="dropdown-item" style="color: green !important; text-decoration:none;">My Profile</a>
+                            <a href="#" class="dropdown-item" style="color: green !important; text-decoration:none;">Settings</a>
                             <form action="{{ route('logout') }}" method="POST" class="d-inline">
                                 @csrf
-                                <button type="submit" class="btn btn-link p-0">Chiqish</button>
+                                <button type="submit" class="btn btn-link p-0 m-0" style="color: green !important; text-decoration:none;">
+                                    Chiqish
+                                </button>
                             </form>
 
                         </div>
@@ -230,14 +232,6 @@
     </div>
 
     <!-- JavaScript Libraries -->
-    <script>
-        setTimeout(() => {
-            document.querySelectorAll('.alert').forEach(a => {
-                const alert = bootstrap.Alert.getOrCreateInstance(a);
-                alert.close();
-            });
-        }, 3000);
-    </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('lib/chart/chart.min.js') }}"></script>
