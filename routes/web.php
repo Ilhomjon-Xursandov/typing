@@ -7,10 +7,11 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminServiceController;
+use App\Http\Controllers\PageController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PageController::class, 'index'])->name('index');
+
+Route::get('/mentors', [PageController::class, 'mentors'])->name('mentors');
 
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('register.store');
@@ -24,7 +25,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('users', UserController::class)->only(['index', 'show']);
     Route::resource('service', AdminServiceController::class);
 });
-
 
 Route::middleware('auth')->group(function(){
     Route::resource('/service', ServiceController::class)->only(['index', 'show']);
