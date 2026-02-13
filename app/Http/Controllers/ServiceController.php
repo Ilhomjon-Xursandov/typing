@@ -13,7 +13,7 @@ class ServiceController extends Controller
     {
         $services = Service::latest()->paginate(10);
 
-        return view('services.index', compact('services'));
+        return view('Backend.services.index', compact('services'));
     }
 
     /**
@@ -21,6 +21,6 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        return view('services.show', compact('service'));
+        return view('Backend.services.show', compact('service'));
     }
 }

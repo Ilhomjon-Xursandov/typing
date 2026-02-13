@@ -20,7 +20,7 @@ class OrderController extends Controller
         $orders = Order::with(['users', 'service'])
             ->latest()
             ->paginate(10);
-        return view('orders.index', compact('orders'));
+        return view('Backend.orders.index', compact('orders'));
 
     }
 
@@ -31,7 +31,7 @@ class OrderController extends Controller
     {
         $users = User::all();
         $services = Service::where('is_active', true)->get();
-        return view('orders.create', compact('users', 'services'));
+        return view('Backend.orders.create', compact('users', 'services'));
     }
 
     /**
@@ -55,7 +55,7 @@ class OrderController extends Controller
     public function show(Order $order)
     {
         $order->load(['user', 'service']);
-        return view('orders.show', compact('order'));
+        return view('Backend.orders.show', compact('order'));
     }
 
     /**
@@ -66,7 +66,7 @@ class OrderController extends Controller
         $users = User::all();
         $services = Service::where('is_active', true)->get();
         $statuses = Order::STATUSES;
-        return view('orders.edit', compact('order', 'users', 'services', 'statuses'));
+        return view('Backend.orders.edit', compact('order', 'users', 'services', 'statuses'));
     }
 
     /**

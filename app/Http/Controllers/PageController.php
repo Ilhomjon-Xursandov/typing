@@ -8,11 +8,11 @@ class PageController extends Controller
 {
     public function index()
     {
-        return view('index');
+        return view('Frontend.index');
     }
     public function mentors()
     {
-        return view('mentors');
+        return view('Frontend.mentors');
     }
 
 }

@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
 use App\Models\Service;
-use Illuminate\Http\Request;
-
 class AdminServiceController extends Controller
 {
     /**
@@ -16,7 +14,7 @@ class AdminServiceController extends Controller
     {
         $services = Service::latest()->paginate(10);
 
-        return view('admin.services.index', compact('services'));
+        return view('Backend.services.index', compact('services'));
     }
 
     /**
@@ -24,7 +22,7 @@ class AdminServiceController extends Controller
      */
     public function create()
     {
-        return view('admin.services.create');
+        return view('Backend.services.create');
     }
 
     /**
@@ -45,7 +43,7 @@ class AdminServiceController extends Controller
      */
     public function show(Service $service)
     {
-        return view('admin.services.show', compact('service'));
+        return view('Backend.services.show', compact('service'));
     }
 
     /**
@@ -53,7 +51,7 @@ class AdminServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        return view('admin.services.edit', compact('service'));
+        return view('Backend.services.edit', compact('service'));
     }
 
     /**
