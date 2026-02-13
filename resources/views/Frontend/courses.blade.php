@@ -1,84 +1,9 @@
 @extends('layouts.main')
 
-@section('title', 'index')
+@section('title', 'courses')
 
 @section('content')
-<div class="container py-5">
-    <div class="row align-items-center g-5">
-        <div class="col-lg-6" data-aos="fade-right" data-aos-once="false">
-            <h2 class="display-2 fw-bold mb-4">
-                Kelajagingizni <span class="text-primary">IT</span> bilan<br>quring
-            </h2>
-            <p class="fs-5 text-white-50 mb-4">
-                Eng so'nggi zamonaviy IT kasblarini o'zbek tilida o'rganing.
-                50+ kurs va 100+ mentor sizni kutmoqda.
-            </p>
-            <div class="d-flex gap-3 mb-5">
-                <a class="btn btn-primary rounded-pill px-4 py-2 fw-semibold" href="{{route('register')}}">
-                    <i class="bi bi-play-circle me-2"></i>Ro'yxatdan o'tish
-                </a>
-                <a class="btn btn-outline-primary rounded-pill px-4 py-2 fw-semibold" href="{{ route('login') }}">
-                    Kirish <i class="bi bi-arrow-right ms-2"></i>
-                </a>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-4" data-aos="fade-up" data-aos-delay="100" data-aos-once="false">
-                    <div class="bg-black bg-opacity-50 p-3 rounded-4 border border-secondary">
-                        <h2 class="text-primary fw-bold mb-0">50+</h2>
-                        <span class="text-white-50">Kurslar</span>
-                    </div>
-                </div>
-                <div class="col-4" data-aos="fade-up" data-aos-delay="200" data-aos-once="false">
-                    <div class="bg-black bg-opacity-50 p-3 rounded-4 border border-secondary">
-                        <h2 class="text-primary fw-bold mb-0">100+</h2>
-                        <span class="text-white-50"><a href="{{ route('mentors') }}">Mentorlar</a></span>
-                    </div>
-                </div>
-                <div class="col-4" data-aos="fade-up" data-aos-delay="300" data-aos-once="false">
-                    <div class="bg-black bg-opacity-50 p-3 rounded-4 border border-secondary">
-                        <h2 class="text-primary fw-bold mb-0">5K+</h2>
-                        <span class="text-white-50">Talabalar</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6" data-aos="fade-left" data-aos-once="false">
-            <div class="position-relative">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                     class="img-fluid rounded-4 border border-secondary" alt="Team">
-
-                <!-- Floating badge 1 -->
-                <div class="position-absolute top-0 end-0 translate-middle-y bg-black p-3 rounded-4 border border-primary"
-                     data-aos="zoom-in" data-aos-delay="500" data-aos-once="false">
-                    <div class="d-flex align-items-center gap-2">
-                        <i class="bi bi-star-fill text-warning fs-5"></i>
-                        <div>
-                            <strong class="text-white">4.9</strong>
-                            <span class="text-white-50 small">(245)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Floating badge 2 -->
-                <div class="position-absolute bottom-0 start-0 translate-middle-y bg-black p-3 rounded-4 border border-primary"
-                     data-aos="zoom-in" data-aos-delay="600" data-aos-once="false">
-                    <div class="d-flex align-items-center gap-2">
-                        <i class="bi bi-people-fill text-info fs-5"></i>
-                        <div>
-                            <strong class="text-white">5000+</strong>
-                            <span class="text-white-50 small">o'quvchi</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</section>
-
-<!-- Filter Buttons - Bootstrap only -->
-<section class="py-4">
+<div class="py-4">
     <div class="container">
         <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
             <div>
@@ -103,7 +28,7 @@
                              class="card-img-top" alt="Frontend" style="height: 200px; object-fit: cover;">
                         <span class="position-absolute top-0 end-0 m-3 badge bg-primary bg-gradient rounded-pill px-3 py-2">
                                 Boshlang'ich
-                            </span>
+</span>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title fw-bold fs-4">Frontend Dasturlash</h5>
@@ -139,7 +64,7 @@
                              class="card-img-top" alt="Backend" style="height: 200px; object-fit: cover;">
                         <span class="position-absolute top-0 end-0 m-3 badge bg-info bg-gradient rounded-pill px-3 py-2">
                                 O'rta
-                            </span>
+</span>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title fw-bold fs-4">Backend Dasturlash</h5>
@@ -211,7 +136,7 @@
                              class="card-img-top" alt="Mobile" style="height: 200px; object-fit: cover;">
                         <span class="position-absolute top-0 end-0 m-3 badge bg-info bg-gradient rounded-pill px-3 py-2">
                                 O'rta
-                            </span>
+</span>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title fw-bold fs-4">Mobile Development</h5>
@@ -283,7 +208,7 @@
                              class="card-img-top" alt="Cybersecurity" style="height: 200px; object-fit: cover;">
                         <span class="position-absolute top-0 end-0 m-3 badge bg-info bg-gradient rounded-pill px-3 py-2">
                                 O'rta
-                            </span>
+</span>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title fw-bold fs-4">Kiberxavfsizlik</h5>
@@ -354,7 +279,7 @@
                         <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                              class="card-img-top" alt="UX/UI" style="height: 200px; object-fit: cover;">
                         <span class="position-absolute top-0 end-0 m-3 badge bg-primary bg-gradient rounded-pill px-3 py-2">
-                                Boshlang'ich
+Boshlang'ich
                             </span>
                     </div>
                     <div class="card-body">
@@ -386,8 +311,9 @@
 
         <div class="text-center mt-5" data-aos="fade-up" data-aos-once="false">
             <button class="btn btn-outline-primary btn-lg rounded-pill px-5 py-3">
-                Barcha kurslarni ko'rish <i class="bi bi-arrow-right ms-2"></i>
+Barcha kurslarni ko'rish <i class="bi bi-arrow-right ms-2"></i>
             </button>
         </div>
     </div>
+</div>
 @endsection

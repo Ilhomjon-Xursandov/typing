@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('')
+@section('title', 404)
 
 @section('content')
     <!-- 404 Start -->

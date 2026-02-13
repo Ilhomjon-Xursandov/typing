@@ -15,4 +15,9 @@ class PageController extends Controller
         return view('Frontend.mentors');
     }
 
+    public function courses()
+    {
+        return view('Frontend.courses');
+    }
+
 }

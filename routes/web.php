@@ -8,9 +8,12 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminServiceController;
 use App\Http\Controllers\PageController;
 
+// start page route
 Route::get('/', [PageController::class, 'index'])->name('index');
-
 Route::get('/mentors', [PageController::class, 'mentors'])->name('mentors');
+Route::get('/courses', [PageController::class, 'courses'])->name('courses');
+//end page route
+
 
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('register.store');
