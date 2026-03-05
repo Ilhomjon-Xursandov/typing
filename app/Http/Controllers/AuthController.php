@@ -46,6 +46,10 @@ class AuthController extends Controller
         }
         $reqest->session()->regenerate();
 
+        //User admin bo'lsa admin panelga o'tqazish
+        $user = Auth::user();
+        if ($user === 'admin'){return redirect()->route('admin.users.index');}
+
         return redirect()->intended(route('order.index'));
     }
 
@@ -55,7 +59,7 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('login')->with('success', 'Chiqildi');
+        return redirect()->route('index')->with('success', 'Chiqildi');
 
     }
 }

@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\UpdateOrderStatusRequest;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Client;
 use App\Models\Order;
 use App\Models\Service;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {

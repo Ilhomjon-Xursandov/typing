@@ -1,18 +1,20 @@
 <?php
 
-use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\AdminServiceController;
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\Backend\AdminServiceController;
+use App\Http\Controllers\Backend\OrderController;
+use App\Http\Controllers\Backend\ServiceController;
+use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Frontend\PageController;
+use Illuminate\Support\Facades\Route;
 
 // start page route
 Route::get('/', [PageController::class, 'index'])->name('index');
 Route::get('/mentors', [PageController::class, 'mentors'])->name('mentors');
 Route::get('/courses', [PageController::class, 'courses'])->name('courses');
-//end page route
+Route::get('/contacts', [PageController::class, 'contacts'])->name('contacts');
+
+//end page routek
 
 
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');

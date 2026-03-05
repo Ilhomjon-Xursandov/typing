@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'IT Kurslar')</title>
-
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
@@ -42,11 +41,10 @@
                        href="{{ route('mentors') }}">Mentorlar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white-50" href="#">Aloqa</a>
+                    <a class="nav-link {{request()->routeIs('contacts')?'active':'text-white-50'}} text-white-50" href="{{ route('contacts') }}">Aloqa</a>
                 </li>
                 <li class="nav-item"><a href="{{ route('login') }}" class="nav-link text-white-50">Kirish</a></li>
             </ul>
-
             <div class="d-flex">
                 <div class="input-group">
                     <span class="input-group-text bg-black border-secondary text-white-50">
@@ -54,7 +52,22 @@
                     </span>
                     <input type="text" class="form-control bg-black border-secondary text-white"
                            placeholder="Kurslarni qidirish..." style="width: 250px;">
+
                 </div>
+                @if(auth()->check())
+                    <div class="nav-item dropdown mt-2">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <span class="d-none d-lg-inline-flex">{{auth()->check()?auth()->user()->name:'John Doe'}}</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();" class="dropdown-item">Chiqish</a>
+
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
@@ -145,5 +158,6 @@
 </script>
 
 @stack('scripts')
+
 </body>
 </html>
