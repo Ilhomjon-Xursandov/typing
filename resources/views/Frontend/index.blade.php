@@ -105,9 +105,11 @@
         </div>
 
         <div class="text-center mt-5" data-aos="fade-up" data-aos-once="false">
-            <button class="btn btn-outline-primary btn-lg rounded-pill px-5 py-3">
-                Barcha kurslarni ko'rish <i class="bi bi-arrow-right ms-2"></i>
-            </button>
+            <a href="{{ route('courses') }}">
+                <div class="btn btn-outline-primary btn-lg rounded-pill px-5 py-3">
+                    Barcha kurslarni ko'rish <i class="bi bi-arrow-right ms-2"></i>
+                </div>
+            </a>
         </div>
     </div>
 @endsection

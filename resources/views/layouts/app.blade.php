@@ -90,7 +90,7 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="{{ route('admin.dashboard') }}" class="nav-item nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : ''  }}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     @if($isAdmin)
                         <a href="{{ route('admin.users.index') }}" class="nav-item nav-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}"><i class="bi bi-people me-2"></i>Mijozlar</a>
                     @endif
@@ -99,6 +99,7 @@
                         <i class="bi bi-gear me-2"></i>Servislar
                     </a>
                     <a href="{{ route('order.index') }}" class="nav-item nav-link {{ request()->routeIs('order.*') ? 'active' : '' }}"><i class="fa fa-th me-2"></i>Buyurtmalar</a>
+                    <a href="{{ route('order.index') }}" class="nav-item nav-link {{ request()->routeIs('order.*') ? 'active' : '' }}"><i class="bi bi-person-lines-fill me-2"></i></i>Aloqa</a>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="nav-item nav-link"><i class="bi bi-box-arrow-left me-2"></i>Chirish</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="post" style="display: none;">
                         @csrf

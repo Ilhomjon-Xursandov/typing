@@ -13,7 +13,7 @@ class PageController extends Controller
     {
         $countUsers = User::count();
         $countServices = Service::count();
-        $services = Service::all();
+        $services = Service::limit(8)->get();
         return view('Frontend.index')
             ->with([
                 'userCount'=>$countUsers,
@@ -28,7 +28,8 @@ class PageController extends Controller
 
     public function courses()
     {
-        return view('Frontend.courses');
+        $allServices = Service::all();
+        return view('Frontend.courses')->with('services', $allServices);
     }
 
     public function contacts()

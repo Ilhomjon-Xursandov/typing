@@ -48,7 +48,7 @@ class AuthController extends Controller
 
         //User admin bo'lsa admin panelga o'tqazish
         $user = Auth::user();
-        if ($user === 'admin'){return redirect()->route('admin.users.index');}
+        if ($user === 'admin'){return redirect()->route('dashboard');}
 
         return redirect()->intended(route('order.index'));
     }
