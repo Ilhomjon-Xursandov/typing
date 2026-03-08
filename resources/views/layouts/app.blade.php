@@ -99,7 +99,7 @@
                         <i class="bi bi-gear me-2"></i>Servislar
                     </a>
                     <a href="{{ route('order.index') }}" class="nav-item nav-link {{ request()->routeIs('order.*') ? 'active' : '' }}"><i class="fa fa-th me-2"></i>Buyurtmalar</a>
-                    <a href="{{ route('order.index') }}" class="nav-item nav-link {{ request()->routeIs('order.*') ? 'active' : '' }}"><i class="bi bi-person-lines-fill me-2"></i></i>Aloqa</a>
+                    <a href="{{ route('admin.contacts.index') }}" class="nav-item nav-link {{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}"><i class="bi bi-person-lines-fill me-2"></i></i>Aloqa</a>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="nav-item nav-link"><i class="bi bi-box-arrow-left me-2"></i>Chirish</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="post" style="display: none;">
                         @csrf

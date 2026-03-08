@@ -27,7 +27,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 //dashboard
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::resource('contacts', ContactsController::class);
+    Route::resource('contacts', ContactsController::class)->except(['show', 'destroy']);
     Route::resource('users', UserController::class)->only(['index', 'show']);
     Route::resource('service', AdminServiceController::class);
 });

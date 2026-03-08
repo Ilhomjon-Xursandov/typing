@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class ContactsController extends Controller
@@ -12,7 +13,8 @@ class ContactsController extends Controller
      */
     public function index()
     {
-        //
+        $contact = Contact::first();
+        return view('Backend.contacts.index', compact('contact'));
     }
 
     /**
@@ -20,21 +22,13 @@ class ContactsController extends Controller
      */
     public function create()
     {
-        //
+        return view('Backend.contacts.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
     {
         //
     }
