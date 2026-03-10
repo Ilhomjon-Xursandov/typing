@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
+use App\Http\Requests\StoreContactRequest;
 use Illuminate\Http\Request;
 
 class ContactsController extends Controller
@@ -28,9 +29,11 @@ class ContactsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreContactRequest $request)
     {
-        //
+        $validated = $request->validated();
+        Contact::create($validated);
+        return redirect()->route('admin.contacts.index')->with('success', 'Aloqa ma\'lumotlari muvofaqyatli saqlandi');
     }
 
     /**
@@ -38,15 +41,18 @@ class ContactsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $contact = Contact::first();
+        return view('Backend.contacts.edit', compact('contact'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StoreContactRequest $request, Contact $contact)
     {
-        //
+        $validated = $request->validated();
+        $contact->update($validated);
+        return redirect()->route('admin.contacts.index')->with('success', "Ma'lumotlar yangilandi");
     }
 
     /**

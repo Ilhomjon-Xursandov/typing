@@ -17,10 +17,12 @@ return new class extends Migration
             $table->string('phone2', length: 13)->nullable();
             $table->string('phone3', length: 13)->nullable();
             $table->string('path');
-            $table->string('email');
+            $table->string('email1');
+            $table->string('email2')->nullable();
+            $table->string('email3')->nullable();
             $table->string('telegram');
             $table->string('instagram');
-            $table->string('Facebook');
+            $table->string('facebook');
             $table->timestamps();
         });
     }

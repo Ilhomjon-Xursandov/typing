@@ -20,7 +20,7 @@
                 <div class="bg-secondary rounded h-100 p-4">
                     <h1>
                         Aloqa ma'lumotlarini sozlash
-                        <a href="#" class="link-success link-offset-2
+                        <a href="{{ route('admin.contacts.edit', $contact) }}" class="link-success link-offset-2
                 link-underline-opacity-25 link-underline-opacity-100-hover"><i class="bi bi-pencil-square ms-5"></i></a>
                     </h1>
                 </div>
@@ -34,8 +34,8 @@
                             <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
                                 <div class="card-header"><i class="bi bi-geo-alt me-1"></i>Manzil</div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Primary card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <h5 class="card-title">Bizning manzilimiz</h5>
+                                    <p class="card-text">{{ $contact->path }}</p>
                                 </div>
                             </div>
                         </div>
@@ -43,8 +43,11 @@
                             <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
                                 <div class="card-header"><i class="bi bi-phone me-1"></i>Telefon</div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Success card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <ul class="list-unstyled">
+                                        <li>Tel: {{ $contact->phone1 }}</li>
+                                        <li>Tel: {{ $contact->phone2 }}</li>
+                                        <li>Tel: {{ $contact->phone3 }}</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -52,8 +55,11 @@
                             <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
                                 <div class="card-header"><i class="bi bi-envelope-at me-1"></i>Email</div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Info card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <ul class="list-unstyled">
+                                        <li>Email: {{ $contact->email1 }}</li>
+                                        <li>Email: {{ $contact->email2 }}</li>
+                                        <li>Email: {{ $contact->email3 }}</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +78,7 @@
                                     <i class="bi bi-instagram fs-1 mb-3"></i>
                                     <p>
                                         <a href="https://instagram.com/yourpage" target="_blank">
-                                            instagram.com/yourpage
+                                            {{ $contact->instagram }}
                                         </a>
                                     </p>
                                 </div>
@@ -86,7 +92,7 @@
                                     <i class="bi bi-telegram fs-1 mb-3"></i>
                                     <p>
                                         <a href="https://t.me/yourchannel" target="_blank">
-                                            t.me/yourchannel
+                                            {{$contact->telegram}}
                                         </a>
                                     </p>
                                 </div>
@@ -100,7 +106,7 @@
                                     <i class="bi bi-facebook fs-1 mb-3"></i>
                                     <p>
                                         <a href="https://facebook.com/yourpage" target="_blank">
-                                            facebook.com/yourpage
+                                            {{$contact->facebook}}
                                         </a>
                                     </p>
                                 </div>
