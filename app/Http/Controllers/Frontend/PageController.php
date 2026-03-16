@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Service;
+use App\Models\Contact;
 
 
 class PageController extends Controller
@@ -34,7 +35,8 @@ class PageController extends Controller
 
     public function contacts()
     {
-        return view('Frontend.contacts');
+        $contact = Contact::first();
+        return view('Frontend.contacts')->with('contact', $contact);
     }
 
 }

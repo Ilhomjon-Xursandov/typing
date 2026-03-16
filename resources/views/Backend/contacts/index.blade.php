@@ -119,7 +119,7 @@
         <div class="container-fluid pt-4 px-4">
             <div class="col-12">
                 <div class="bg-secondary rounded h-100 p-4">
-                    Aloqa ma'lumotlarini yangilash uchun bosing: <a href="#" class="link-success link-offset-2
+                    Aloqa ma'lumotlarini yangilash uchun bosing: <a href="{{ route('admin.contacts.edit', $contact) }}" class="link-success link-offset-2
                 link-underline-opacity-25 link-underline-opacity-100-hover"><i class="bi bi-pencil-square me-1"></i>Yangilash</a>
                 </div>
             </div>

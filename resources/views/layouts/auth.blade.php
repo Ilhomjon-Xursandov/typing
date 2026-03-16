@@ -7,9 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="{{asset('img/favicon.ico')}}" rel="icon">
+    <link rel="icon" type="image/png" href="{{ asset('img/auth.png') }}">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

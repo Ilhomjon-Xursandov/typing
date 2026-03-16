@@ -77,8 +77,7 @@
                     </div>
                     <h4 class="fw-bold text-white mb-3">Manzil</h4>
                     <p class="text-white-50 mb-3">
-                        Toshkent shahri, Mirzo Ulug'bek tumani,<br>
-                        University str. 2, IT Park, 3-qavat
+                        {{ $contact->path }}<br>
                     </p>
                     <button class="btn btn-outline-primary rounded-pill px-4" onclick="window.open('https://www.google.com/maps?q=41.338119,69.240898', '_blank')">
                         <i class="bi bi-map me-2"></i>Xaritada ko'rish
@@ -94,13 +93,13 @@
                     </div>
                     <h4 class="fw-bold text-white mb-3">Telefon</h4>
                     <p class="text-white-50 mb-2">
-                        <i class="bi bi-telegram me-2 text-primary"></i>+998 (71) 200-99-99
+                        <i class="bi bi-telegram me-2 text-primary"></i>{{ $contact->phone1 }}
                     </p>
                     <p class="text-white-50 mb-2">
-                        <i class="bi bi-telegram me-2 text-primary"></i>+998 (90) 123-45-67
+                        <i class="bi bi-telegram me-2 text-primary"></i>{{ $contact->phone2 }}
                     </p>
                     <p class="text-white-50 mb-3">
-                        <i class="bi bi-telegram me-2 text-primary"></i>+998 (93) 765-43-21
+                        <i class="bi bi-telegram me-2 text-primary"></i>{{ $contact->phone3 }}
                     </p>
                     <span class="badge bg-success bg-opacity-10 text-success border border-success rounded-pill px-3 py-2">
                             <i class="bi bi-clock me-1"></i>24/7 Ishlaymiz
@@ -116,13 +115,13 @@
                     </div>
                     <h4 class="fw-bold text-white mb-3">Email</h4>
                     <p class="text-white-50 mb-2">
-                        <i class="bi bi-envelope me-2 text-warning"></i>info@itkurslar.uz
+                        <i class="bi bi-envelope me-2 text-warning"></i>{{ $contact->email1 }}
                     </p>
                     <p class="text-white-50 mb-2">
-                        <i class="bi bi-envelope me-2 text-warning"></i>support@itkurslar.uz
+                        <i class="bi bi-envelope me-2 text-warning"></i>{{ $contact->email2 }}
                     </p>
                     <p class="text-white-50 mb-3">
-                        <i class="bi bi-envelope me-2 text-warning"></i>mentor@itkurslar.uz
+                        <i class="bi bi-envelope me-2 text-warning"></i>{{ $contact->email3 }}
                     </p>
                     <span class="badge bg-warning bg-opacity-10 text-warning border border-warning rounded-pill px-3 py-2">
                             <i class="bi bi-lightning-charge me-1"></i>Tezkor javob
@@ -245,8 +244,8 @@
                         <i class="bi bi-telegram text-primary fs-1"></i>
                     </div>
                     <h5 class="fw-bold text-white">Telegram</h5>
-                    <p class="text-white-50 small mb-3">@itkurslar_uz</p>
-                    <a href="#" class="btn btn-outline-primary w-100 rounded-pill">
+                    <p class="text-white-50 small mb-3">{{ $contact->instagram }}</p>
+                    <a href="{{ $contact->instagram }}" class="btn btn-outline-primary w-100 rounded-pill">
                         <i class="bi bi-send me-2"></i>Yozish
                     </a>
                 </div>
@@ -257,8 +256,8 @@
                         <i class="bi bi-instagram text-danger fs-1"></i>
                     </div>
                     <h5 class="fw-bold text-white">Instagram</h5>
-                    <p class="text-white-50 small mb-3">@itkurslar.uz</p>
-                    <a href="#" class="btn btn-outline-danger w-100 rounded-pill">
+                    <p class="text-white-50 small mb-3">{{ $contact->instagram }}</p>
+                    <a href="{{ $contact->instagram }}" class="btn btn-outline-danger w-100 rounded-pill">
                         <i class="bi bi-camera me-2"></i>Kuzatish
                     </a>
                 </div>
@@ -269,8 +268,8 @@
                         <i class="bi bi-facebook text-info fs-1"></i>
                     </div>
                     <h5 class="fw-bold text-white">Facebook</h5>
-                    <p class="text-white-50 small mb-3">/itkurslar.uz</p>
-                    <a href="#" class="btn btn-outline-info w-100 rounded-pill">
+                    <p class="text-white-50 small mb-3">{{ $contact->facebook }}</p>
+                    <a href="{{ $contact->facebook }}" class="btn btn-outline-info w-100 rounded-pill">
                         <i class="bi bi-hand-thumbs-up me-2"></i>Like
                     </a>
                 </div>
